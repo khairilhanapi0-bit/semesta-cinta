@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semesta Cinta ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+background:#000;
+color:white;
+}
+
+/* ========================= */
+/* HALAMAN AWAL */
+/* ========================= */
+
+#loveScreen{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#000428,#004e92);
+z-index:99999;
+}
+
+.heart{
+position:relative;
+width:220px;
+height:220px;
+background:#ff4dd2;
+transform:rotate(-45deg);
+animation:beat 1.2s infinite;
+box-shadow:0 0 50px #ff4dd2;
+}
+
+.heart:before,
+.heart:after{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+border-radius:50%;
+background:#ff4dd2;
+}
+
+.heart:before{
+top:-110px;
+}
+
+.heart:after{
+left:110px;
+}
+
+@keyframes beat{
+50%{
+transform:rotate(-45deg) scale(1.1);
+}
+}
+
+.profile{
+position:absolute;
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:50%;
+border:5px solid white;
+z-index:2;
+}
+
+.content{
+position:absolute;
+text-align:center;
+z-index:3;
+}
+
+.content h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.content p{
+margin-bottom:20px;
+font-size:18px;
+}
+
+.btn{
+border:none;
+padding:12px 25px;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.yes{
+background:white;
+color:#ff4dd2;
+}
+
+.no{
+background:#111827;
+color:white;
+position:fixed;
+}
+
+/* ========================= */
+/* SEMESTA */
+/* ========================= */
+
+#universe{
+display:none;
+width:100vw;
+height:100vh;
+position:relative;
+overflow:hidden;
+}
+
+.stars{
+position:absolute;
+inset:0;
+background-image:
+radial-gradient(white 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.25;
+}
+
+.title{
+position:absolute;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+font-size:40px;
+color:#ff8ad8;
+text-shadow:0 0 15px #ff00ff;
+z-index:50;
+}
+
+.galaxy{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:420px;
+height:420px;
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+#fff 0%,
+#ffd6ff 10%,
+#ff69b4 20%,
+rgba(255,105,180,.25) 40%,
+transparent 70%);
+
+animation:spinGalaxy 40s linear infinite;
+}
+
+@keyframes spinGalaxy{
+from{
+transform:translate(-50%,-50%) rotate(0deg);
+}
+to{
+transform:translate(-50%,-50%) rotate(360deg);
+}
+}
+
+.center-heart{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+font-size:120px;
+z-index:10;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:translate(-50%,-50%) scale(1.15);
+}
+}
+
+/* ORBIT */
+
+.orbit{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+border:1px solid rgba(255,255,255,.08);
+pointer-events:none;
+}
+
+.orbit1{
+width:250px;
+height:250px;
+animation:rotate 15s linear infinite;
+}
+
+.orbit2{
+width:400px;
+height:400px;
+animation:rotate 22s linear infinite reverse;
+}
+
+.orbit3{
+width:550px;
+height:550px;
+animation:rotate 30s linear infinite;
+}
+
+.orbit4{
+width:700px;
+height:700px;
+animation:rotate 40s linear infinite reverse;
+}
+
+@keyframes rotate{
+from{
+transform:translate(-50%,-50%) rotate(0deg);
+}
+to{
+transform:translate(-50%,-50%) rotate(360deg);
+}
+}
+
+.planet{
+position:absolute;
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:50%;
+border:3px solid white;
+cursor:pointer;
+pointer-events:auto;
+transform:translate(-50%,-50%);
+box-shadow:0 0 20px white;
+transition:.4s;
+}
+
+.planet:hover{
+transform:translate(-50%,-50%) scale(1.15);
+box-shadow:0 0 35px #ff69b4;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.card{
+width:90%;
+max-width:650px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:20px;
+text-align:center;
+}
+
+#imgView{
+width:100%;
+max-height:350px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.quote{
+margin-top:15px;
+line-height:1.8;
+font-size:18px;
+color:#ffd6ff;
+}
+
+textarea{
+width:100%;
+height:120px;
+margin-top:15px;
+padding:12px;
+border:none;
+border-radius:12px;
+resize:none;
+}
+
+.saved{
+margin-top:15px;
+color:#ffd6ff;
+font-style:italic;
+}
+
+.closeBtn{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HALAMAN PEMBUKA -->
+
+<div id="loveScreen">
+
+<div class="heart"></div>
+
+<img src="foto1.jpg" class="profile">
+
+<div class="content">
+<h1>LOVE YOU ❤️</h1>
+<p>Maukah membuka ini?</p>
+
+<button class="btn yes" onclick="openUniverse()">
+Iya ❤️
+</button>
+
+<button class="btn no" id="noBtn">
+Tidak 😅
+</button>
+</div>
+
+</div>
+
+<!-- SEMESTA -->
+
+<div id="universe">
+
+<div class="stars"></div>
+
+<h1 class="title">NAURA ❤️</h1>
+
+<div class="galaxy"></div>
+
+<div class="center-heart">💖</div>
+
+<div class="orbit orbit1">
+<img src="Foto 2.jpeg" class="planet" style="top:-45px;left:50%" onclick="openPhoto(this,0)">
+</div>
+
+<div class="orbit orbit2">
+<img src="foto 3.jpeg" class="planet" style="top:50%;left:100%" onclick="openPhoto(this,1)">
+</div>
+
+<div class="orbit orbit3">
+<img src="foto 4.jpeg" class="planet" style="top:100%;left:50%" onclick="openPhoto(this,2)">
+</div>
+
+<div class="orbit orbit4">
+<img src="foto 5.jpeg" class="planet" style="top:50%;left:0%" onclick="openPhoto(this,3)">
+</div>
+
+<div class="orbit orbit3" style="animation-direction:reverse;">
+<img src="foto 6.jpeg" class="planet" style="top:15%;left:85%" onclick="openPhoto(this,4)">
+</div>
+
+<div class="orbit orbit2" style="animation-direction:reverse;">
+<img src="foto 7.jpeg" class="planet" style="top:85%;left:15%" onclick="openPhoto(this,5)">
+</div>
+
+<div class="orbit orbit4">
+<img src="foto 8.jpeg" class="planet" style="top:20%;left:20%" onclick="openPhoto(this,6)">
+</div>
+
+<div class="orbit orbit4" style="animation-direction:reverse;">
+<img src="foto 9.jpeg" class="planet" style="top:80%;left:80%" onclick="openPhoto(this,7)">
+</div>
+
+</div>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="card">
+
+<img id="imgView">
+
+<div class="quote" id="quote"></div>
+
+<textarea id="userMessage"
+placeholder="Tulis pesan untuk dia ❤️"></textarea>
+
+<button onclick="saveMessage()">
+Simpan Pesan 💌
+</button>
+
+<div class="saved" id="savedMessage"></div>
+
+<button class="closeBtn" onclick="closeModal()">
+Tutup ❤️
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* TOMBOL TIDAK KABUR */
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseenter",()=>{
+
+const maxX=window.innerWidth-150;
+const maxY=window.innerHeight-80;
+
+noBtn.style.left=Math.random()*maxX+"px";
+noBtn.style.top=Math.random()*maxY+"px";
+
+});
+
+/* BUKA SEMESTA */
+
+function openUniverse(){
+
+document.getElementById("loveScreen").style.display="none";
+document.getElementById("universe").style.display="block";
+
+}
+
+/* KATA-KATA */
+
+const quotes=[
+
+"Hai Ola ❤️",
+
+"Kamu adalah alasan banyak senyumku 😊",
+
+"Semoga harimu selalu bahagia ✨",
+
+"Aku bersyukur bisa mengenalmu 💖",
+
+"Jangan lupa menjaga kesehatan 🌷",
+
+"Kamu lebih berharga dari yang kamu kira 💕",
+
+"Tetap jadi dirimu yang terbaik 🌹",
+
+"Aku akan selalu mendukungmu ❤️"
+
+];
+
+/* FOTO */
+
+function openPhoto(photo,index){
+
+document.getElementById("modal").style.display="flex";
+
+document.getElementById("imgView").src=photo.src;
+
+document.getElementById("quote").innerHTML=
+quotes[index];
+
+}
+
+/* TUTUP */
+
+function closeModal(){
+
+document.getElementById("modal").style.display="none";
+
+}
+
+/* SIMPAN PESAN */
+
+function saveMessage(){
+
+const pesan=
+document.getElementById("userMessage").value;
+
+document.getElementById("savedMessage").innerHTML=
+"💌 "+pesan;
+
+}
+
+</script>
+
+</body>
+</html>
